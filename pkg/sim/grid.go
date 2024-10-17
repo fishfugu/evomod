@@ -45,7 +45,7 @@ func (g *Grid) Position(x, y int) *Cell {
 	return g.Cells[y][x]
 }
 
-func (g *Grid) Update() {
+func (g *Grid) Update(count int) {
 	for y := 0; y < g.Height; y++ {
 		for x := 0; x < g.Width; x++ {
 			cell := g.Cells[y][x]
@@ -60,5 +60,5 @@ func (g *Grid) Update() {
 		}
 		fmt.Println()
 	}
-	fmt.Println(strings.Repeat("-", g.Width*2)) // div between ticks
+	fmt.Printf("%s %d\n", strings.Repeat("-", g.Width*2), count) // div between ticks
 }
