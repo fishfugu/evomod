@@ -31,7 +31,7 @@ func NewCreature(id, speed, strength int, senseOfDirection, searchRadius float64
 func (c *Creature) Move() {
 	if c.SenseOfDirection < 360 {
 		direction := rand.Float64()*360 - c.SenseOfDirection
-		radians := direction * math.Pi / 180 // Convert direction to radians for cosine and sine functions
+		radians := direction * math.Pi / 180 // Convert direction to radians for cos and sin funcs
 		newX := c.Position.X + int(float64(c.Speed)*math.Cos(radians))
 		newY := c.Position.Y + int(float64(c.Speed)*math.Sin(radians))
 		c.Position = c.Grid.Position(newX, newY)
@@ -69,8 +69,8 @@ func (c *Creature) MoveTowards(x, y int) {
 }
 
 func (c *Creature) Act() {
-	// Define what the creature does in one tick of the simulation
-	// This example includes searching for food and potentially moving
+	// Define what creature does in one tick of sim
+	// currently includes searching for food / potentially moving
 	if c.NeedsToEat() {
 		c.SearchFood()
 	} else {
@@ -79,6 +79,6 @@ func (c *Creature) Act() {
 }
 
 func (c *Creature) NeedsToEat() bool {
-	// Placeholder for decision logic, assuming always true for simplicity
+	// TODO: decision logic
 	return true
 }

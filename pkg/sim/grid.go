@@ -1,5 +1,10 @@
 package sim
 
+import (
+	"fmt"
+	"strings"
+)
+
 type Cell struct {
 	X, Y      int
 	Food      int
@@ -41,16 +46,19 @@ func (g *Grid) Position(x, y int) *Cell {
 }
 
 func (g *Grid) Update() {
-	// Example of a simple update loop for each cell in the grid
 	for y := 0; y < g.Height; y++ {
 		for x := 0; x < g.Width; x++ {
 			cell := g.Cells[y][x]
-			// Update each creature in this cell
-			for _, creature := range cell.Creatures {
-				creature.Act() // Act method to be defined in creature.go
+			cellSymbol := "."
+			if len(cell.Creatures) > 0 {
+				cellSymbol = "C" // a Creature
 			}
-			// Consider adding code to handle food regeneration or depletion here
+			if cell.Food > 0 {
+				cellSymbol = "F" // Food
+			}
+			fmt.Print(cellSymbol + " ")
 		}
+		fmt.Println()
 	}
-	// Additional logic to handle environment changes or global events
+	fmt.Println(strings.Repeat("-", g.Width*2)) // div between ticks
 }

@@ -12,13 +12,11 @@ Evolution Modeller (Evomod) is a grid-based simulation environment where virtual
 
 ## Installation
 
-### Prerequisites
+### Prereqs
 
 - Go 1.15 or higher
 
-### Setting Up
-
-To set up the project, clone the repository and build the project:
+### Set Up
 
 ```bash
 git clone https://github.com/fishfugu/evomod.git
@@ -28,17 +26,15 @@ go build -o evomod ./cmd/evomod
 
 ## Usage
 
-To run the simulation, execute the compiled binary:
-
 ```bash
 ./evomod
 ```
 
-This will start the simulation, which you can watch in your command line interface. For now, the simulation runs indefinitely and outputs updates at each tick (future versions will include visual tools for better interaction and observation).
+Watch inline. For now, the sim runs in text and outputs updates each tick (future versions will include visual tools for better interaction and observation).
 
 ## Contributing
 
-Contributions to the Evolution Modeller are welcome!
+Contributions to the Evolution Modeller welcome!
 
 [] TODO: make Contributing.md
 
@@ -48,7 +44,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-- Inspired by classic models of artificial life and evolutionary computation.
+- Inspired by classic models of artificial life and evolutionary computation... and life.
 
 ### TODO
 

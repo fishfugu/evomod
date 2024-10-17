@@ -2,25 +2,21 @@ package main
 
 import (
 	"fmt"
+	"time"
 
-	"github.com/fishfugu/evomod/pkg/sim" // Ensure the import path matches your module setup
+	"github.com/fishfugu/evomod/pkg/sim"
 )
 
 func main() {
 	fmt.Println("Starting Evolution Modeller...")
+	grid := sim.NewGrid(100, 100)
+	reporter := sim.NewReporter(grid) // Initialise reporter with the grid
 
-	// Create a new grid
-	grid := sim.NewGrid(100, 100) // Example size: 100x100
-
-	// Create creatures and place them on the grid
-	startCell := grid.Position(50, 50) // Starting position for the creature
-	creature := sim.NewCreature(1, 5, 10, 180, 10, startCell, grid)
-	startCell.Creatures = append(startCell.Creatures, creature)
-
-	// Optionally, create more creatures and configure them similarly
-
-	// Example of starting the simulation (you'll need to implement this loop)
-	for {
-		grid.Update() // This method needs to be implemented to progress the simulation
+	// Setup initial creatures
+	for i := 0; i < 100; i++ { // Run 100 ticks
+		grid.Update()
+		time.Sleep(500 * time.Millisecond) // Slow output for visibility
 	}
+
+	reporter.GenerateReport() // generate end of simulation report
 }
